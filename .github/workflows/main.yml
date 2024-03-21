@@ -1,0 +1,17 @@
+name: Add Reviewers
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  add-reviewers:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Add reviewers
+        uses: actions/automate@v1.4.0
+        with:
+          reviewers: Eashwarsai
+          comment: "This pull request requires review from @{{ reviewers }}"
